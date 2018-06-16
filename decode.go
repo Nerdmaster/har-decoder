@@ -86,8 +86,9 @@ func main() {
 			}
 		}
 
+		os.Mkdir("./output", 0750)
 		var out *os.File
-		out, err = os.Create(filename)
+		out, err = os.Create(filepath.Join("output", filename))
 		if err != nil {
 			log.Printf("Error creating file for %q: %s", filename, err)
 			os.Exit(1)
